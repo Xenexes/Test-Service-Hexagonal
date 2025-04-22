@@ -7,6 +7,6 @@ develocity {
   }
 }
 
-rootProject.name = "Test-Service-Hecagonal"
+rootProject.name = "Test-Service-Hexagonal"
 
 include(":apps:test-service-a")
