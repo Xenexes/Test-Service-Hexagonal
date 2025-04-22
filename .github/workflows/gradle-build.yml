@@ -31,7 +31,7 @@ jobs:
         id: gradle
         env:
           BUILD_SCAN_TOS_ACCEPTED: true
-        run: ./gradlew build --scan
+        run: ./gradlew build
 
       - name: Add build scan URL as PR comment
         uses: actions/github-script@v7
