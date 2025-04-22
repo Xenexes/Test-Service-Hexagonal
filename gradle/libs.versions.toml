@@ -1,0 +1,128 @@
+[versions]
+detekt = "1.23.8"
+flyway = "11.7.2"
+jackson = "2.18.3"
+junit = "5.12.2"
+junitPlatformLauncher = "1.12.2"
+jjwt = "0.12.6"
+konsist = "0.17.3"
+kotlin = "2.1.20"
+kotlinx = "1.8.1"
+ktfmt = "0.22.0"
+mockk = "1.14.0"
+openApiCodegen = "1.9.0"
+springBoot = "3.4.4"
+springDependencyManagement = "1.1.7"
+springDoc = "2.8.6"
+springSecurity = "6.4.4"
+testContainers = "1.20.6"
+testingSpringMockk = "4.0.2"
+testingSpringTest = "6.2.6"
+versionCatalogUpdate = "1.0.0"
+versionUpdate = "0.52.0"
+springModulith = "1.3.4"
+springSessionJdbc = "3.4.2"
+
+[libraries]
+flywayCore = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
+flywayPostgres = { module = "org.flywaydb:flyway-database-postgresql", version.ref = "flyway" }
+jacksonModuleKotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson" }
+jjwt = { module = "io.jsonwebtoken:jjwt", version.ref = "jjwt" }
+jjwtImpl = { module = "io.jsonwebtoken:jjwt-impl", version.ref = "jjwt" }
+kotlinReflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+kotlinStd = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlinxSerializationJson = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx" }
+postgresql = "org.postgresql:postgresql:42.7.5"
+springBootActuator = { module = "org.springframework.boot:spring-boot-starter-actuator", version.ref = "springBoot" }
+springBootDataJpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa", version.ref = "springBoot" }
+springBootSecurityStarter = { module = "org.springframework.boot:spring-boot-starter-security", version.ref = "springBoot" }
+springBootStarterActuator = { module = "org.springframework.boot:spring-boot-starter-actuator", version.ref = "springBoot" }
+springBootStarterValidation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "springBoot" }
+springBootStarterWeb = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springBoot" }
+springBootStarterWebflux = { module = "org.springframework.boot:spring-boot-starter-webflux", version.ref = "springBoot" }
+springBootStarterMail = { module = "org.springframework.boot:spring-boot-starter-mail", version.ref = "springBoot" }
+springSession = { module = "org.springframework.session:spring-session-jdbc", version.ref = "springSessionJdbc" }
+springdocWebmvc = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springDoc" }
+testContainers = { module = "org.springframework.boot:spring-boot-testcontainers", version.ref = "springBoot" }
+testContainersPostgres = { module = "org.testcontainers:postgresql", version.ref = "testContainers" }
+testJunit = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+testJunitPlatformLauncher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatformLauncher" }
+testJunitPlatformEngin = { module = "org.junit.platform:junit-platform-engine", version.ref = "junitPlatformLauncher" }
+testJunitPlatformCommons = { module = "org.junit.platform:junit-platform-commons", version.ref = "junitPlatformLauncher" }
+testKonsist = { module = "com.lemonappdev:konsist", version.ref = "konsist" }
+testMockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+testcontainersJunitJupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testContainers" }
+testingSpringBootSecurityTest = { module = "org.springframework.security:spring-security-test", version.ref = "springSecurity" }
+testingSpringBootTest = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springBoot" }
+testingSpringMockk = { module = "com.ninja-squad:springmockk", version.ref = "testingSpringMockk" }
+testingSpringTest = { module = "org.springframework:spring-test", version.ref = "testingSpringTest" }
+springModulithStarterCore = { module = "org.springframework.modulith:spring-modulith-starter-core", version.ref = "springModulith" }
+springModulithStarterJpa = { module = "org.springframework.modulith:spring-modulith-starter-jpa", version.ref = "springModulith" }
+springModulithStarterTest = { module = "org.springframework.modulith:spring-modulith-starter-test", version.ref = "springModulith" }
+
+[plugins]
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-plugin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-plugin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
+kotlinAllOpen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }
+ktfmt = { id = "com.ncorti.ktfmt.gradle", version.ref = "ktfmt" }
+openApiCodegen = { id = "org.springdoc.openapi-gradle-plugin", version.ref = "openApiCodegen" }
+springBoot = { id = "org.springframework.boot", version.ref = "springBoot" }
+springDependencyManagement = { id = "io.spring.dependency-management", version.ref = "springDependencyManagement" }
+versionCatalogUpdate = { id = "nl.littlerobots.version-catalog-update", version.ref = "versionCatalogUpdate" }
+versionUpdate = { id = "com.github.ben-manes.versions", version.ref = "versionUpdate" }
+kotlin-jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlin" }
+
+
+[bundles]
+documentation = [
+    "springdocWebmvc",
+]
+persistence = [
+    "flywayCore",
+    "flywayPostgres",
+    "postgresql",
+    "springBootDataJpa",
+]
+springBoot = [
+    "jacksonModuleKotlin",
+    "kotlinxSerializationJson",
+    "springBootActuator",
+    "springBootStarterActuator",
+    "springBootStarterValidation",
+    "springBootStarterWeb",
+    "springBootStarterWebflux",
+    "springBootStarterMail",
+    "springSession",
+    "springModulithStarterCore",
+    "springModulithStarterJpa",
+]
+springSecurity = [
+    "springBootSecurityStarter",
+]
+springTesting = [
+    "testingSpringBootSecurityTest",
+    "testingSpringBootTest",
+    "testingSpringMockk",
+    "testingSpringTest",
+    "springModulithStarterTest",
+]
+test = [
+    "testJunit",
+    #"testJunitPlatformLauncher",
+    #"testJunitPlatformEngin",
+    #"testJunitPlatformCommons",
+    "testKonsist",
+    "testMockk",
+]
+testContainers = [
+    "testContainers",
+    "testContainersPostgres",
+    "testcontainersJunitJupiter",
+]
+
+jjwt = [
+    "jjwt",
+    "jjwtImpl",
+]

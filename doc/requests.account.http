@@ -1,0 +1,70 @@
+### Authenticate and store JWT
+POST http://{{host}}:{{port}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "{{authEmail}}",
+  "password": "{{authPassword}}"
+}
+
+> {%
+    client.global.set("authToken", response.body.token);
+%}
+
+
+### Activate an account
+POST http://{{host}}:{{port}}/api/accounts/activate
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "token": "{{activationToken}}"
+}
+
+
+### Register a new (regular) account
+POST http://{{host}}:{{port}}/api/accounts
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "email": "{{newUserEmail}}",
+  "password": "{{newUserPassword}}"
+}
+
+
+### Register a new admin account
+POST http://{{host}}:{{port}}/api/accounts/admin
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "email": "{{newAdminEmail}}",
+  "password": "{{newAdminPassword}}"
+}
+
+
+### List all accounts (no filter)
+GET http://{{host}}:{{port}}/api/accounts
+Authorization: Bearer {{authToken}}
+
+
+### List accounts with filters
+GET http://{{host}}:{{port}}/api/accounts?searchTerm=alice&email={{newUserEmail}}&roles=USER,ADMIN&active=true&createdAfter=2025-01-01T00:00:00Z
+Authorization: Bearer {{authToken}}
+
+
+### Update an account’s details
+PUT http://{{host}}:{{port}}/api/accounts/{{accountId}}
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "newEmail": "alice.new@example.com",
+  "newPassword": "EvenMoreSecure456!"
+}
+
+
+### 8. Delete an account
+DELETE http://{{host}}:{{port}}/api/accounts/{{accountId}}
+Authorization: Bearer {{authToken}}

@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "5438:5432"
+    environment:
+      POSTGRES_PASSWORD: test
+      POSTGRES_USER: test
+      POSTGRES_DB: test-service-a
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - test-service-hexagonal-app-network
+
+networks:
+  test-service-hexagonal-app-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local

@@ -1,0 +1,102 @@
+spring:
+  main:
+    banner-mode: off
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:test-service-a}?reWriteBatchedStatements=true
+    username: ${DB_USERNAME:test}
+    password: ${DB_PASSWORD:test}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-test-query: SELECT current_timestamp
+      maximum-pool-size: 20
+      minimum-idle: 10
+      idle-timeout: 600000 # 10 minutes
+      max-lifetime: 1800000 # 30 minutes
+      connection-timeout: 30000 # 30 seconds
+      pool-name: connect-with-locals-cp
+      leak-detection-threshold: 20000 # 20 seconds
+      initialization-fail-timeout: 30000 # 30 seconds
+      data-source-properties:
+        prepareThreshold: 3
+        preparedStatementCacheQueries: 250
+        preparedStatementCacheSize: 250
+        # In many or most cases the hibernate-orm mapper is above the threshold
+        prepStmtCacheSqlLimit: 2048
+        prepStmtCacheSize: 250
+        useServerPrepStmts: true
+        useLocalSessionState: true
+        rewriteBatchedStatements: true
+        cacheResultSetMetadata: true
+        cacheServerConfiguration: true
+        elideSetAutoCommits: true
+        maintainTimeStats: false
+  jpa:
+    # JPA general show sql
+    show-sql: true
+    properties:
+      hibernate:
+        ddl-auto: none
+        # Hibernate specific show sql
+        show_sql: true
+        # Hibernate specific formatting
+        format_sql: true
+        # Hibernate Statistics to analyze performance issues
+        generate_statistics: false
+        # Hibernate specific printing parameter values in order
+        type:
+          descriptor:
+            sql: warn
+        query:
+          in_clause_parameter_padding: true
+        jdbc:
+          fetch_size: 50
+          batch_size: 50
+        default_batch_fetch_size: 50
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    enabled: true
+    locations: db/migrations
+    baseline-on-migrate: true
+    schemas: public
+    create-schemas: true
+  mail:
+    host: smtp.gmail.com
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    port: 587
+    properties:
+      "mail.smtp.auth": true
+      "mail.smtp.starttls.enable": true
+    test-connection: true
+  session:
+    jdbc:
+      initialize-schema: embedded
+
+springdoc:
+  api-docs:
+    path: /api/api-docs
+
+server:
+  servlet:
+    session:
+      timeout: 30m
+  port: 8091
+
+service:
+  server:
+    url: http://127.0.0.1
+  service-email: ${TEST_SERVICE_A_EMAIL}
+  account:
+    creation:
+      admin:
+        enabled: ${CREATE_ADMIN_ENABLED:false}
+        email: ${ADMIN_EMAIL}
+        password: ${ADMIN_PASSWORD}
+  login:
+    jwt:
+      key:
+        private-key: ${TEST_SERVICE_A_LOGIN_JWT_KEYS_PRIVATE}
+        public-key: ${TEST_SERVICE_A_LOGIN_JWT_KEYS_PUBLIC}
+

@@ -1,0 +1,47 @@
+name: Run Gradle on PRs
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Set up Gradle
+        uses: gradle/gradle-build-action@v3
+
+      - name: Run Gradle build with scan
+        id: gradle
+        env:
+          BUILD_SCAN_TOS_ACCEPTED: true
+        run: ./gradlew build --scan
+
+      - name: Add build scan URL as PR comment
+        uses: actions/github-script@v7
+        if: github.event_name == 'pull_request' && failure()
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `❌ \`${github.workflow}\` failed: ${{ steps.gradle.outputs.build-scan-url }}`
+            })

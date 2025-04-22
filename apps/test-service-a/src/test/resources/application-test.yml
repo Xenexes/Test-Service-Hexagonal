@@ -1,0 +1,19 @@
+spring:
+  mail:
+    password: springboot
+    username: duke
+    host: 127.0.0.1
+    port: 3025 # default protocol port + 3000 as offset
+    protocol: smtp
+    test-connection: false
+    properties:
+      management:
+        health:
+          mail:
+            enabled: false
+service:
+  login:
+    jwt:
+      key:
+        private-key: "MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCiPWSJ6voeO7OR2iGAhryC2f/3mCGE2C/ANo+nmJUbzOyuxM+38C4faQZ8/JVCIAtTwEM9yPvcSbIlwEGMXPlFOlYGNpRjLaKWDRngjunpvGBpNONdzmSyykIPeWEiNGTdTv9sqDozYE0mNAjyUEkQOe22lg95dL8wo813LBeqnWmZHnLPdqG5t43OjeOA/aQh++zCFTqyfTcKnx3jO3KgDcGcrCVZn+QsYew7JNhAD1QA78DuvbxDjzrYBLns8y7ZKOPG00wrB/00CEAPG9TMKQJK2e1mlvYHsA7A6EY4Vz52lFZ9FYgB9PrgGDFjb4XxAhcu2yhIJVBHzvUvCeofAgMBAAECggEAAydDd/OMNDuQcy4kAkYWDgGcPsw3CQuX/jI79PJBnA/dCK8PYDlLueqpJYc9kJWnDWA/w6o9D4uHJv8qfdj6S+sGoxxHUzaMhougKsDojLb0Iw41iO86U7vfC+GRsy28ACYkpM1xaLl3sRRmmUIoUokVU1qF/JHhY4qiXhsWhz5LTAfBIGnokp46II92ArLAF85LKssKDRcQLOiQFeJQZvd5CXZGyiyo0kAcAT/l9PNgzyFKeLmNQ/SkNblHoiPnW9pguubRQxZexO9Mc3PUqis1Ih7rkJ/wvBiRfZQyXXftII1998xqDWqFnpFrMdcNg+WsnGXPvhJI7hu38lM90QKBgQDexc4GxRNFu5Jec3z3s8CgCmegRGgJNj8p5rbkqsFTG479Iahhmsmeh6TddL/+ZUhMrnhkDHoCymqKTeOjFYAJuKkVgULxK1oHZ7AMcbotwbzJiI7IGQi+IjjSMkphq0J449m15kFWI4uRUSkg/tgoUD3+8v20ewCbRUHH3ZSZ+wKBgQC6cD5ohfWt4ix/+BRKNRfb5pkxzThOiIRZBIWfwq9BlBm04oJ6v/ZN0y1NSBt5UCn0gDq/1eBLDog0V5FXdeih6ZTgclP5Owy7niVHN2wn8zFt6YoQtDBeZiujrInOjLxIJZ7Ow48qvpS/hwzMU4ah/0o96Aq1uXsdeYLoJ+o7LQKBgGBqI7zyVmD7yWFvgkqCVX/ugOLwOEakX7n2zHkzHfCmIMCVbJaxs0kVU9k0ylOD6kKl0B0c+UFz8aBiDX9rsrqCXUudYieWp6RE0ADSx8096EMhAwq/KvV/QjBW67JRuLcxhewf928cey8tfSt2oH7yG6LX783I3n5U/x9NWx85AoGAZOPi0dtUROG1JRcRm8q5e5WBZ1Lf2pfDzwxEZ10KTBmiA6Hj7Bs/ZYQW6tBPlcmMurQ9lpxdwSA/EtwkWckDt8LYftE/ogqTbGA7Whui2sefAxSzUzC/UAZILU1sUasVJJG/K7LmIcJ6al7hzRySKc4l1fRg/1A9UIj2Dz2yYo0CgYBY1sndFYTKB6KLelyNMn3qg+wmsg3SoDWB1r3UPsvRmCQ9h8xcFp28CKqxxZ7DyiALlHqIvYMYBgHswEdpRLYmDbBmobcGqgmfldr/HwA6VLGOQhw+Uy/KfENvha/qiZSZWAZN6yzH/LS0+oAPq45lAN7ap+u6XoWj7dQtUCz7Xg=="
+        public-key: "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoj1kier6HjuzkdohgIa8gtn/95ghhNgvwDaPp5iVG8zsrsTPt/AuH2kGfPyVQiALU8BDPcj73EmyJcBBjFz5RTpWBjaUYy2ilg0Z4I7p6bxgaTTjXc5ksspCD3lhIjRk3U7/bKg6M2BNJjQI8lBJEDnttpYPeXS/MKPNdywXqp1pmR5yz3ahubeNzo3jgP2kIfvswhU6sn03Cp8d4ztyoA3BnKwlWZ/kLGHsOyTYQA9UAO/A7r28Q4862AS57PMu2SjjxtNMKwf9NAhADxvUzCkCStntZpb2B7AOwOhGOFc+dpRWfRWIAfT64BgxY2+F8QIXLtsoSCVQR871LwnqHwIDAQAB"

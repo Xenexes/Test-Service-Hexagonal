@@ -1,0 +1,1 @@
+-- initial script to verify flyway works
