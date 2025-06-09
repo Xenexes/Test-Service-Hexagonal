@@ -2,7 +2,7 @@
 detekt = "1.23.8"
 flyway = "11.8.0"
 jackson = "2.19.0"
-junit = "5.12.2"
+junit = "5.13.1"
 junitPlatformLauncher = "1.12.2"
 jjwt = "0.12.6"
 konsist = "0.17.3"
