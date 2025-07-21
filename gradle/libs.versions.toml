@@ -1,6 +1,6 @@
 [versions]
 detekt = "1.23.8"
-flyway = "11.9.1"
+flyway = "11.10.3"
 jackson = "2.19.0"
 junit = "5.13.1"
 junitPlatformLauncher = "1.13.1"
