@@ -20,7 +20,7 @@ testingSpringMockk = "4.0.2"
 testingSpringTest = "6.2.7"
 versionCatalogUpdate = "1.0.0"
 versionUpdate = "0.52.0"
-springModulith = "1.4.0"
+springModulith = "1.4.2"
 springSessionJdbc = "3.5.0"
 
 [libraries]
