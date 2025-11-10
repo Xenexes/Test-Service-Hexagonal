@@ -21,7 +21,7 @@ testingSpringTest = "6.2.12"
 versionCatalogUpdate = "1.0.0"
 versionUpdate = "0.52.0"
 springModulith = "1.4.0"
-springSessionJdbc = "3.5.0"
+springSessionJdbc = "3.5.3"
 
 [libraries]
 flywayCore = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
